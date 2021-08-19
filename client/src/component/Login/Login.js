@@ -6,6 +6,7 @@ import { setUser } from "../../redux/reducers/user-reducer";
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import { clearFiltered } from '../../redux/reducers/food-reducer';
 
 const Login = (props) => {
 
@@ -24,6 +25,8 @@ const Login = (props) => {
             [e.target.name] : e.target.value
         });
     }
+
+    dispatch(clearFiltered());  //clear filtered foods
 
     const btnClickHandler = () => {
         const params = {
