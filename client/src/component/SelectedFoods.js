@@ -6,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
+import { Box } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,13 +38,15 @@ const SelectedFoods = (props) => {
     );
 
     return (
-        <div className={classes.root}>
-          
-        <List className="App">
-          {foodsDisplay}
-        </List>
 
-        </div>
+      <Box 
+          display="flex"          
+          justifyContent="center"
+        >
+          <List>
+            {foodsDisplay}
+          </List>
+      </Box>
     )
 }
 
