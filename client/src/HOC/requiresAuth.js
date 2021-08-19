@@ -7,9 +7,14 @@ const requiresAuth = WrappedComponent => props => {
     const currentUser = useSelector(state => state.user.user);
     const history = useHistory();
 
+    useEffect(() => {
+        if (currentUser.length < 1)
+            history.push("/login")
+      });
+
     return (
         <div>
-            {currentUser.length > 0 ? <WrappedComponent {...props}/> : history.push("/login") }
+            <WrappedComponent {...props}/>
         </div>
     );
   }
