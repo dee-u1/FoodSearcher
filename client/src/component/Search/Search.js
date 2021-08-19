@@ -2,14 +2,11 @@ import React, { useEffect, useState }   from 'react';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { setSearchCriteria } from "../../redux/reducers/search-reducer";
-import { useSelector } from 'react-redux';
 import SearchResult from './SearchResult';
-import axios from 'axios';
 import { filter } from "../../redux/reducers/food-reducer";
 import TextField from '@material-ui/core/TextField';
 
 const SearchFood = (props) => {
-
     const [searchWord, setSearchWord]=useState('');
     
     const history = useHistory();

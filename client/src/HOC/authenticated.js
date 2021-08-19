@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Login from '../component/Login/Login';
 import styles from '../component/Login/User.module.css';
-import '../App.css';
+//import '../App.css';
 
 const authenticated = WrappedComponent => props => {
   

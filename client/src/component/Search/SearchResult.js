@@ -1,33 +1,23 @@
 import React, { useEffect, useState } from 'react';
-//import Table from 'react-bootstrap/Table';
-//import Button from 'react-bootstrap/esm/Button';
-//import AddEditBook from './AddEditBook';
-//import Modal from 'react-bootstrap/Modal'
 import Food from './Food';
-//import {useState} from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import styles from './../Login/User.module.css';
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-//import { setUser } from "../../redux/reducers/user-reducer";
 import { clearFiltered } from '../../redux/reducers/food-reducer';
 import { Button } from '@material-ui/core';
 
 const SearchResult = (props) => {
-    const [foods, setFoods] = useState([]);
     const [selection, setSelection] = useState([]);
 
     const history = useHistory();
     const dispatch = useDispatch();
 
     //retrieve search criteria from redux store
-
     const currentSearchCriteria = useSelector(state => state.search.word);
     const filteredFoods = useSelector(state => state.foods.filteredFoods);
 
-    const itemChecked = (food) => {
-        
+    const itemChecked = (food) => {        
         let selectionCopy = [...selection];                
         selectionCopy.push(food);    
         setSelection(selectionCopy);
