@@ -24,8 +24,14 @@ app.use(urlencoded({ extended: false }));
 app.use(json());
 
 app.get("/foods", (req, res) =>{
-  //res.json({ data: foods });
-  res.json(foods);
+  res.json({ data: foods });
+  //res.json(foods);
+});
+
+app.post("/foods", (req, res) => {
+  console.log(req.body);
+  selectedFoods = [...req.body.foods];
+  res.json({ data: selectedFoods });
 });
 
 app.get("/foods/search", (req, res) =>{
@@ -37,12 +43,6 @@ app.get("/foods/search", (req, res) =>{
   res.json(searchResult);
 });
 
-app.post("/foods", (req, res) => {
-  console.log(req.body);
-  selectedFoods = [...req.body.foods];
-  res.json({ data: selectedFoods });
-});
-
 app.post('/saveselection', (req,res) => {
   const newSelection = req.body.foods;
   selectedFoods = newSelection;
@@ -50,22 +50,9 @@ app.post('/saveselection', (req,res) => {
   res.sendStatus(200)
 });
 
-// app.get("/foods", (req, res) => {
-//   console.log(req.body);
-//   selectedFoods = [...req.body.foods];
-//   res.json({ data: selectedFoods });
-// });
-
 app.get("/foods/selected", (req, res) => {
   res.json(selectedFoods);
 });
-
-// app.get("/users", (req, res) => {
-//  // console.log(req.body);
-//   //selectedFoods = [...req.body.foods];
-//   res.json({ data: users });
-// });
-
 
 app.get("/checkuser", (req, res) => {
   const username = req.query.username;
@@ -87,8 +74,6 @@ app.post('/clear/selection', (req, res) => {
     selectedFoods = [...[]];
     res.json(selectedFoods);
 })
-
-
 
 app.listen(8000, () => {
   console.log("Server is running and listening to port 8000");

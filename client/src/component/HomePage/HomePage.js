@@ -24,7 +24,8 @@ const HomePage = (props) => {
     useEffect(() => {
       axios.get('/foods')
       .then(res => {
-          dispatch(setFoods(res.data)); 
+          console.log(res);
+          dispatch(setFoods(res.data.data)); 
       }); 
     },[])
     

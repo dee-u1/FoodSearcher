@@ -32,7 +32,7 @@ const SelectedFoods = (props) => {
     //     </div>
 
     let foodsDisplay = foods.map(food => 
-        <ListItem>
+        <ListItem key={food}>
           <ListItemText primary= {food} />
         </ListItem>
     );
